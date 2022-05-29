@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise</title>
+</head>
+<body>
+    <h1 id="demo"></h1>
+</body>
+<script>
+    function mydiplayer(some){
+            document.getElementById('demo').innerHTML=some;
+    }
+    let myPromise= new promise (function (myresolve,myreject){
+
+        let req=new XMLHttpRequest;
+req.open('GET',"https://catfact.ninja/fact");
+req.onload=function(){
+    if (req.status==200){
+        myresolve(req.response);
+
+    }else{
+        myreject("poda dei");
+    }
+};
+req.send();
+    });
+
+    myPromise.then(
+  function(value) {myDisplayer(value);},
+  function(error) {myDisplayer(error);}
+);
+
+fetch
+</script>
+</html>
